@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body bg-black>
+    <div class="container-wrapper pt-10">
+        <div id="room-booking" class="container w-4/5 m-auto bg-blue-100">
+            <div class="heading flex pb-4">
+                <div class="m-auto flex">
+                    <div class="img-wrap w-10 h-10"><img src="https://static.thenounproject.com/png/15061-200.png"/></div>
+                    <div class="title pt-2 ">Choose number of <span class="text-black text-lg font-bold">people</span></div>
+                </div>
+            </div>
+            <div class="list-wrap">
+                <ul class="list">
+                    <li class="flex justify-evenly" v-for="(item,index) in requirement">
+                        <div class="img-wrap w-10 h-10"><img src="https://static.vecteezy.com/system/resources/thumbnails/000/581/865/small/icon0-vector-633-01.jpg"/></div>
+                        <div class="title pt-2 w-20">{{item.title}}</div>
+                        <div class="img-wrap remove w-4 h-4 pt-2 cursor-pointer remove" v-on:click="enterDetails($event,index)" :key="item.id"><img id="remove"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_d3zmYAhX0ZIczPN3Sq1eKUx6XDoxNoMYGNWGm69hLH9DkvnIvwWvQ_H2K2S3DUssY6Q&usqp=CAU"/></div>
+                        <div class="number pt-2">{{item.count}}</div>
+                        <div class="img-wrap add w-10 h-10 cursor-pointer add" v-on:click="enterDetails($event,index)"><img id="add" src="https://icons-for-free.com/iconfiles/png/512/add+board+new+plus+icon-1320186882821780394.png"/></div>
+                    </li>
+                </ul>
+            </div>
+    
+            <div class="bookhere w-20 h-8 bg-black text-white flex justify-center cursor-pointer m-auto mt-4 " @click="bookNow" >
+            Book now
+            </div>
+            <div class="Member-name"> <label for="name">Name:</label><input type="text" ref="nameId" id="name" name="name"></div>
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
